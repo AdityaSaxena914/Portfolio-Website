@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+  <button id="theme-toggle" class="btn">
+    🌙
+  </button>
 
   <header>
     <h1>Aditya Saxena</h1>
@@ -99,12 +101,16 @@
 
   <script src="script.js"></script>
   <script>
-    const toggle = document.getElementById('theme-toggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('light');
-      toggle.textContent = document.body.classList.contains('light') ? '🌞' : '🌙';
+    window.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById("theme-toggle");
+      const body = document.body;
+  
+      toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("light");
+        toggleBtn.textContent = body.classList.contains("light") ? "🌞" : "🌙";
+      });
     });
-  </script>
+  </script>    
   
 </body>
 </html>

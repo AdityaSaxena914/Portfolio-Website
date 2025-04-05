@@ -1,154 +1,252 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #f1f1f1;
-      line-height: 1.6;
-      padding: 20px;
-      overflow-x: hidden;
-    }
-    header, section {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      animation: fadeIn 1.2s ease forwards;
-    }
-    header {
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      color: #00ffcc;
-      animation: slideInDown 1s ease forwards;
-    }
-    h2 {
-      margin-top: 2rem;
-      color: #66fcf1;
-      border-bottom: 1px solid #555;
-      padding-bottom: 5px;
-      animation: fadeInUp 1s ease forwards;
-    }
-    a {
-      color: #1abc9c;
-      text-decoration: none;
-    }
-    ul { list-style: square; padding-left: 20px; }
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.02);
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #00ffcc;
-      color: #000;
-      border-radius: 8px;
-      font-weight: bold;
-      margin: 10px 5px 0 5px;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .btn:hover {
-      background: #00ccaa;
-      transform: translateY(-3px);
-    }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding-bottom: 10px;
-    }
-    .skill-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
-    }
-    .skill-icon:hover {
-      transform: scale(1.1);
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .skill-icon img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideInDown {
-      from { opacity: 0; transform: translateY(-50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .interactive-text {
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-top: 10px;
-      color: #ccc;
-    }
-    .footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #444;
-    }
-    body.light {
-  background: linear-gradient(to right, #ffffff, #e4e4ff);
-  color: #1a1a1a;
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+  --primary: #00ffcc;
+  --accent: #66fcf1;
+  --bg-dark-start: #0f2027;
+  --bg-dark-mid: #203a43;
+  --bg-dark-end: #2c5364;
+  --text-light: #f1f1f1;
+  --text-subtle: #ccc;
+
+  --bg-light-start: #ffffff;
+  --bg-light-end: #e4e4ff;
+  --text-dark: #1a1a1a;
+  --btn-light: #7f5af0;
+  --btn-light-hover: #5f40d1;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, var(--bg-dark-start), var(--bg-dark-mid), var(--bg-dark-end));
+  color: var(--text-light);
+  line-height: 1.6;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+header,
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--primary);
+  animation: slideInDown 1s ease forwards;
+}
+
+h2 {
+  margin-top: 2rem;
+  color: var(--accent);
+  border-bottom: 1px solid #555;
+  padding-bottom: 5px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+a {
+  color: #1abc9c;
+  text-decoration: none;
+}
+
+ul {
+  list-style: square;
+  padding-left: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: #000;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 10px 5px 0 5px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background: #00ccaa;
+  transform: translateY(-3px);
+}
+
+.btn:focus {
+  outline: 2px dashed #fff;
+  outline-offset: 2px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.skill-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, rotate 0.4s ease;
+}
+
+.skill-icon:hover {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.skill-icon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.interactive-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 10px;
+  color: var(--text-subtle);
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+}
+
+/* Light Mode */
+body.light {
+  background: linear-gradient(to right, var(--bg-light-start), var(--bg-light-end));
+  color: var(--text-dark);
+}
+
 body.light .card {
   background: rgba(0, 0, 0, 0.05);
-  color: #000;
+  color: var(--text-dark);
 }
+
 body.light .btn {
-  background: #7f5af0;
+  background: var(--btn-light);
   color: #fff;
 }
+
 body.light .btn:hover {
-  background: #5f40d1;
+  background: var(--btn-light-hover);
 }
+
 body.light h1 {
-  color: #7f5af0;
+  color: var(--btn-light);
 }
+
 body.light h2 {
-  color: #5f40d1;
+  color: var(--btn-light-hover);
   border-color: #999;
 }
+
 body.light a {
-  color: #5f40d1;
+  color: var(--btn-light-hover);
 }
+
 body.light .skill-icon {
   background: rgba(0, 0, 0, 0.1);
 }
+
 body.light .skill-icon:hover {
   background: rgba(0, 0, 0, 0.2);
 }
+
 body.light .footer {
   color: #444;
   border-color: #ccc;
 }
+
 .header-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .skills-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
