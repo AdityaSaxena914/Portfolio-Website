@@ -96,12 +96,13 @@ ul {
 }
 
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   gap: 20px;
+  justify-items: center;
   padding-bottom: 10px;
 }
+
 
 .skill-icon {
   width: 80px;
