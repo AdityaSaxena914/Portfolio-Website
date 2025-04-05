@@ -8,12 +8,6 @@
   --bg-dark-end: #2c5364;
   --text-light: #f1f1f1;
   --text-subtle: #ccc;
-
-  --bg-light-start: #ffffff;
-  --bg-light-end: #e4e4ff;
-  --text-dark: #1a1a1a;
-  --btn-light: #7f5af0;
-  --btn-light-hover: #5f40d1;
 }
 
 * {
@@ -145,52 +139,6 @@ ul {
   margin-top: 40px;
   padding-top: 20px;
   border-top: 1px solid #444;
-}
-
-/* Light Mode */
-body.light {
-  background: linear-gradient(to right, var(--bg-light-start), var(--bg-light-end));
-  color: var(--text-dark);
-}
-
-body.light .card {
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--text-dark);
-}
-
-body.light .btn {
-  background: var(--btn-light);
-  color: #fff;
-}
-
-body.light .btn:hover {
-  background: var(--btn-light-hover);
-}
-
-body.light h1 {
-  color: var(--btn-light);
-}
-
-body.light h2 {
-  color: var(--btn-light-hover);
-  border-color: #999;
-}
-
-body.light a {
-  color: var(--btn-light-hover);
-}
-
-body.light .skill-icon {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-body.light .skill-icon:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-body.light .footer {
-  color: #444;
-  border-color: #ccc;
 }
 
 .header-buttons {
