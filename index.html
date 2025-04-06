@@ -47,13 +47,23 @@
     }
 
     header h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      animation: typing 4s steps(30), blink 1s step-end infinite;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid;
-    }
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: typing 4s steps(30), blink 1s step-end infinite;
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.2rem;
+    white-space: normal;
+    border-right: none;
+    animation: fadeInUp 2s ease-in-out;
+  }
+}
+
 
     header p {
       font-size: 1.5rem;
