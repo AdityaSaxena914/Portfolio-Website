@@ -1,100 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Saxena | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/1/10/Moon_Knight_%28Marvel_Comics_character%29.png" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      background: rgba(14, 14, 14, 0.85);
+      backdrop-filter: blur(12px);
+      color: #e0e0e0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: #4fc3f7;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #81d4fa;
+    }
+
+    header {
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      padding: 2rem;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: typing 4s steps(30), blink 1s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      animation: fadeInUp 3s ease-in-out;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+      display: inline-block;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      transition: transform 1.5s ease, box-shadow 1.5s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .card a {
+      color: #ffffff;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".card");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.transition = "opacity 2s ease-out, transform 2s ease-out";
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
 </head>
+
 <body>
   <header>
     <h1>Aditya Saxena</h1>
-    <p class="interactive-text">🚀 Turning ideas into code, and code into magic!</p>
-    <p>Full Stack Developer & Cybersecurity Engineer (in the making)</p>
-    <div>
-      <a class="btn" href="https://www.linkedin.com/in/adityasaxena914" target="_blank">LinkedIn</a>
-      <a class="btn" href="https://github.com/AdityaSaxena914" target="_blank">GitHub</a>
-      <a class="btn" href="mailto:aditya.saxena.contact@gmail.com">Email Me</a>
-    </div>
+    <p>Turning ideas into code</p>
   </header>
 
-  <section>
+  <section id="about">
     <h2>About Me</h2>
-    <p>I am a passionate learner working towards becoming a full stack developer and a cybersecurity engineer...</p>
+    <p>I’m a Computer Science student passionate about cybersecurity, full-stack development, and problem-solving. I aim to become an elite ethical hacker and software engineer by building powerful tools and contributing to open-source communities. This portfolio is a reflection of my journey and passion for technology.</p>
   </section>
 
-  <section>
-    <h2>Education</h2>
-    <div class="card">
-      <p><strong>Hindustan College of Science and Technology</strong><br>
-      B.Tech in Computer Science – First Year<br>
-      Mathura</p>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card-container">
+      <div class="card">C / C++</div>
+      <div class="card">Java</div>
+      <div class="card">Python</div>
+      <div class="card">Git</div>
+      <div class="card">GitHub</div>
+      <div class="card">VS Code</div>
+      <div class="card">Linux</div>
     </div>
   </section>
 
-  <section>
+  <section id="projects">
     <h2>Projects</h2>
-    <div class="card">
-        <p><strong>Competitive Coding Library</strong></p>
-        <p>A collection of reusable code snippets, algorithms, and templates to speed up competitive programming and problem-solving.</p>
-        <p><strong>Tech Used:</strong> C++, Git, GitHub, VS Code</p>
-        <p><em>In Progress – Deadline: May 23, 2025</em></p>
-        <p><a href="https://github.com/AdityaSaxena914/competitive-coding-library" target="_blank">View Project</a></p>
-      </div>
-      <div class="card">
-        <p><strong>Ultimate Competitive Programming Hub</strong></p>
-        <p>A full-stack website for practicing and visualizing DSA with code evaluation, problem tracking, and GitHub integration.</p>
-        <p><strong>Tech Used:</strong> HTML, CSS, JavaScript, Java, GitHub</p>
-        <p><em>In Progress – Deadline: Dec 31, 2025</em></p>
-      </div>
-      <div class="card">
-        <p><strong>Portfolio Website</strong></p>
-        <p>A sleek and interactive personal portfolio showcasing projects, skills, and achievements using ChatGPT completely.</p>
-        <p><strong>Tech Used:</strong> HTML, CSS</p>
-        <p><em>Completed – April 2025</em></p>
-        <p><a href="https://github.com/AdityaSaxena914/Portfolio-Website.git" target="_blank">View Project</a></p>
-      </div>
+    <div class="card-container">
+      <div class="card">Competitive Coding Library (in Progress)</div>
+      <div class="card">CHUB – Ultimate CP Hub (in Progress)</div>
+      <div class="card">Moon Knight Portfolio Website (in Progress)</div>
+    </div>
   </section>
 
-  <section>
-    <h2>Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"></div>
-        <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"></div>
-        <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
-        <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
-        <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></div>
-        <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"></div>
-        <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"></div>
-        <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"></div>
-      </div>
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <div class="card-container">
+      <div class="card"><a href="https://cert.diceid.com/cid/rFh3lhF9IM" target="_blank">IOT Meets AI Workshop – YHills</a></div>
+      <div class="card"><a href="https://cert.diceid.com/cid/Gx26fDWJd1" target="_blank">Cyber Security Workshop – YHills</a></div>
+      <div class="card"><a href="https://cert.diceid.com/cid/xUAoFfTOct" target="_blank">Advanced Ethical Hacking Bootcamp – YHills</a></div>
+      <div class="card"><a href="https://moonshot.scaler.com/s/li/Zt-mJIn2Z9" target="_blank">Data Structures in C++ – Scaler</a></div>
+      <div class="card"><a href="https://moonshot.scaler.com/s/li/tE4sW-cdoP" target="_blank">Java Course - Mastering the Fundamentals – Scaler</a></div>
+      <div class="card"><a href="https://simpli-web.app.link/e/Gu6mPeuPXRb" target="_blank">Introduction to Generative AI – Simplilearn</a></div>
+    </div>
   </section>
 
-  <section>
-    <h2>Certifications</h2>
-    <div class="card"><p><strong>Cyber Security</strong><br>Yhills Edtech — April 2025<br><a href="https://cert.diceid.com/cid/Gx26fDWJd1" target="_blank">View Certificate</a></p></div>
-    <div class="card"><p><strong>Advanced Ethical Hacking Bootcamp</strong><br>Yhills Edtech — March 2025<br><a href="https://cert.diceid.com/cid/xUAoFfTOct" target="_blank">View Certificate</a></p></div>
-    <div class="card"><p><strong>Data Structures in C++</strong><br>Scaler — March 2025<br><a href="https://moonshot.scaler.com/s/li/Zt-mJIn2Z9" target="_blank">View Certificate</a></p></div>
-    <div class="card"><p><strong>IOT Meets AI</strong><br>Yhills Edtech — March 2025<br><a href="https://cert.diceid.com/cid/rFh3lhF9IM" target="_blank">View Certificate</a></p></div>
-    <div class="card"><p><strong>Introduction to Generative AI</strong><br>Simplilearn — March 2025<br><a href="https://simpli-web.app.link/e/Gu6mPeuPXRb" target="_blank">View Certificate</a></p></div>
-    <div class="card"><p><strong>Java Course - Mastering the Fundamentals</strong><br>Scaler — March 2025<br><a href="https://moonshot.scaler.com/s/li/tE4sW-cdoP" target="_blank">View Certificate</a></p></div>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:aditya.saxena.contact@gmail.com">aditya.saxena.contact@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/AdityaSaxena914" target="_blank">AdityaSaxena914</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/adityasaxena914" target="_blank">adityasaxena914</a></p>
+    <p>Website: <a href="https://adityasaxena.tech" target="_blank">adityasaxena.tech</a></p>
   </section>
 
-  <section>
-    <h2>Achievements & Hobbies</h2>
-    <ul>
-      <li>Programming</li>
-      <li>Problem Solving</li>
-      <li>Learning New Skills</li>
-    </ul>
-  </section>
-
-  <footer class="footer">
-    <p>Designed & built by Aditya Saxena using ChatGPT</p>
+  <footer>
+    <p>© 2025 Aditya Saxena. Inspired by Moon Knight.</p>
   </footer>
-
-  <script src="script.js"></script> 
-  
 </body>
+
 </html>
